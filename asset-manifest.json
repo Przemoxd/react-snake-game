@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-snake-game/static/css/main.aa3b6223.chunk.css",
+    "main.js": "/react-snake-game/static/js/main.4e803ddd.chunk.js",
+    "main.js.map": "/react-snake-game/static/js/main.4e803ddd.chunk.js.map",
+    "runtime~main.js": "/react-snake-game/static/js/runtime~main.87448e3a.js",
+    "runtime~main.js.map": "/react-snake-game/static/js/runtime~main.87448e3a.js.map",
+    "static/js/2.2b788eca.chunk.js": "/react-snake-game/static/js/2.2b788eca.chunk.js",
+    "static/js/2.2b788eca.chunk.js.map": "/react-snake-game/static/js/2.2b788eca.chunk.js.map",
+    "index.html": "/react-snake-game/index.html",
+    "precache-manifest.0e97d158e2f3925fa79f47da68db940e.js": "/react-snake-game/precache-manifest.0e97d158e2f3925fa79f47da68db940e.js",
+    "service-worker.js": "/react-snake-game/service-worker.js",
+    "static/css/main.aa3b6223.chunk.css.map": "/react-snake-game/static/css/main.aa3b6223.chunk.css.map"
+  }
+}
