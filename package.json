@@ -2,7 +2,7 @@
   "name": "react-snake-game",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Przemoxd.github.io/react-snake-game",
+  "homepage": "https://Przemoxd.github.io/react-snake-game",
   "dependencies": {
     "@types/lodash": "^4.14.123",
     "@types/react": "^16.8.16",
