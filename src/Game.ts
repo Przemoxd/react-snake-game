@@ -12,6 +12,7 @@ export class Game {
     private snake: Snake;
     private SPEED_GAME: number;
     private food: Food;
+    private pause: boolean;
 
     constructor() {
         this.SPEED_GAME = 100;
@@ -20,7 +21,7 @@ export class Game {
         console.log("Board initialized with " + this.board.columns + " Columns and " + this.board.rows + " Rows");
         this.snake = new Snake(this.board.getCenterPoint(), this.board);
         this.food = new Food(this.canvas.getCountColumns(), this.canvas.getCountRows());
-        console.log(this.food);
+        this.pause = false;
         this.gameLoop();
     }
 
@@ -33,7 +34,7 @@ export class Game {
         );
         setInterval(() => {
             this.canvas.drawScene(this.snake, this.food);
-            if (this.snake.direction) {
+            if (this.snake.direction && !this.pause) {
                 this.snake.moveSnake();
             }
             if (Point.equal(this.snake.head, this.food.point)) {
@@ -41,42 +42,33 @@ export class Game {
                 this.food.generateFood();
             }
             if (this.snake.eatedFood) {
-                console.log(this.snake.eatedFood.point);
                 if (Point.equal(this.snake.eatedFood.point, this.snake.tail)) {
-                    console.log("TAIL");
                     this.snake.addPart(this.snake.eatedFood.point);
                     this.snake.eatedFood = undefined;
                 }
             }
-
-            console.log(this.snake.tail);
-
-
         }, this.SPEED_GAME);
     }
 
 
     onKeyDown(event: any) {
-        console.log(this);
-        switch (event.key) {
+        switch (event.code) {
             case 'ArrowRight':
                 this.snake.changeDirection(Direction.Right);
-                console.log("PRAWO");
                 break;
             case 'ArrowLeft':
                 this.snake.changeDirection(Direction.Left);
-                console.log("LEWO");
                 break;
             case 'ArrowUp':
                 this.snake.changeDirection(Direction.Up);
-                console.log("GÓRA");
                 break;
             case 'ArrowDown':
                 this.snake.changeDirection(Direction.Down);
-                console.log("DÓŁ");
+                break;
+            case 'Space':
+                this.pause = !this.pause;
                 break;
             default:
-                console.log("COŚ");
                 break;
         }
     }
