@@ -21,13 +21,6 @@ export class Snake {
 
     initSnake(point: Point) {
         this.addPart(point);
-        //TEST
-        let point2 = _.cloneDeep(point);
-        point2.x += 1;
-        this.addPart(point2)
-        let point3 = _.cloneDeep(point);
-        point3.x += 1;
-        this.addPart(point3)
     }
 
     addPart(part: Point) {
@@ -35,7 +28,9 @@ export class Snake {
     }
 
     public changeDirection(direction: Direction) {
-        this.direction = direction;
+        if (this.validateDirection(direction)) {
+            this.direction = direction;
+        }
     }
 
     moveSnake() {
@@ -68,30 +63,31 @@ export class Snake {
         return point;
     }
 
+    validateDirection(direction: Direction) {
+        return !((this.direction === Direction.Down || this.direction === Direction.Up) && (direction === Direction.Up || direction === Direction.Down) ||
+            (this.direction === Direction.Left || this.direction === Direction.Right) && (direction === Direction.Left || direction === Direction.Right));
+    }
+
     eat() {
 
     }
 
     moveRight(head: Point) {
-       // console.log("move right");
         head.x += 1;
         return head;
     }
 
     moveLeft(head: Point) {
-      //  console.log("move left");
         head.x -= 1;
         return head;
     }
 
     moveUp(head: Point) {
-     //   console.log("move up");
         head.y -= 1;
         return head;
     }
 
     moveDown(head: Point) {
-      //  console.log("move down")
         head.y += 1;
         return head;
     }
