@@ -4,7 +4,7 @@ import {Point} from "./Point";
 import {Food} from "./Food";
 
 const ZOOM: number = 0.75;
-const RECT_SIZE = 10;
+const RECT_SIZE = 30;
 const WIDTH: number = Math.round(window.innerWidth * ZOOM / RECT_SIZE) * RECT_SIZE;
 const HEIGHT: number = Math.round(window.innerHeight * ZOOM / RECT_SIZE) * RECT_SIZE;
 const SNAKE_COLOR: string = "blue";
@@ -27,11 +27,11 @@ export class Canvas {
 
 
     getCountRows() {
-        return HEIGHT / 10;
+        return HEIGHT / RECT_SIZE;
     }
 
     getCountColumns() {
-        return WIDTH / 10;
+        return WIDTH / RECT_SIZE;
     }
 
     fillBoard(color: string) {
